@@ -1,0 +1,1268 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade & Termos de Uso | [Sua Agência MKT]</title>
+<meta name="color-scheme" content="dark light">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /*
+  ==============================================
+  🎨 Variáveis CSS (Design Tokens)
+  ==============================================
+  */
+  :root {
+    --bg: #050505;
+    --panel: #0b0f12;
+    --panel-2: #0e1419;
+    --text: #e7f0ff;
+    --muted: #9fb0c0;
+    --line: rgba(255, 255, 255, .08);
+    --brand: #84cc16; /* lime */
+    --brand-2: #22c55e; /* green */
+    --accent: #06b6d4; /* cyan */
+    --radius: 16px;
+    --shadow: 0 20px 60px rgba(0, 0, 0, .45);
+  }
+
+  /*
+  ==============================================
+  ⚙️ Base e Estilos Globais
+  ==============================================
+  */
+  html,
+  body {
+    background: var(--bg);
+    color: var(--text);
+    /* [MODIFICADO] Usando a fonte Inter */
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial;
+    overflow-x: hidden;
+    /* --- INÍCIO CENTRALIZAÇÃO E VISIBILIDADE --- */
+    min-height: 100vh; /* Garante que o body ocupe a altura total */
+    display: flex; /* Habilita Flexbox */
+    flex-direction: column; /* Conteúdo empilhado verticalmente */
+    /* --- FIM CENTRALIZAÇÃO E VISIBILIDADE --- */
+  }
+
+  /* Fundo Aurora Animado */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 200%;
+    height: 100vh;
+    background:
+      radial-gradient(60% 60% at 20% 30%, rgba(132, 204, 22, .15) 0%, transparent 80%),
+      radial-gradient(60% 60% at 80% 70%, rgba(6, 182, 212, .12) 0%, transparent 80%);
+    animation: aurora-glow 25s linear infinite alternate;
+    filter: blur(80px);
+    z-index: -2;
+    pointer-events: none;
+  }
+
+  @keyframes aurora-glow {
+    0% {
+      transform: translateX(-25%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  /* Overlay de Grid "Tech" */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Links */
+  a {
+    color: var(--brand-2);
+    text-decoration: none;
+    transition: color .2s ease, text-shadow .2s ease;
+  }
+
+  /* [MODIFICADO] Hover com glow */
+  a:hover {
+    opacity: 1;
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(6, 182, 212, .5);
+  }
+
+  /* Barra de progresso pulsante */
+  .progress {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2), var(--accent), var(--brand));
+    z-index: 60;
+    background-size: 300% 100%;
+    animation: pulse-progress 3s linear infinite;
+    box-shadow: 0 0 10px var(--brand), 0 0 5px var(--brand-2);
+  }
+
+  @keyframes pulse-progress {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+
+
+  /*
+  ==============================================
+  🧱 Layout e Estrutura Principal
+  ==============================================
+  */
+
+  /* Container Principal */
+  .container {
+    max-width: 1100px;
+    /* [MODIFICADO PARA CENTRALIZAÇÃO] Remove margin:auto e o body cuida da centralização */
+    /* margin: auto; */
+    padding: 0 24px;
+    /* [NOVO] Garante que o container se estique verticalmente para empurrar o footer (se houver) */
+    flex-grow: 1;
+    /* --- INÍCIO CENTRALIZAÇÃO E VISIBILIDADE --- */
+    /* Centraliza o container na vertical e horizontal se o conteúdo for menor que a viewport */
+    margin: auto;
+    /* --- FIM CENTRALIZAÇÃO E VISIBILIDADE --- */
+  }
+
+  /* Seção Hero/Topo */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    padding: 72px 0 24px;
+    background: transparent;
+    overflow: hidden;
+    /* [MODIFICADO] Se for o único conteúdo, centraliza-o verticalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Layout Legal/Conteúdo Principal (TOC + Conteúdo) */
+  .legal {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 22px;
+    margin: 26px 0 80px;
+  }
+
+  @media (max-width: 980px) {
+    .legal {
+      grid-template-columns: 1fr
+    }
+  }
+
+
+  /*
+  ==============================================
+  ✏️ Tipografia
+  ==============================================
+  */
+
+  /* Título Principal (H1) */
+  h1 {
+    font-size: clamp(28px, 4.2vw, 52px);
+    line-height: 1.05;
+    margin: 0 0 10px;
+    font-weight: 900;
+    /* [NOVO] Glow no título principal */
+    text-shadow: 0 0 20px rgba(132, 204, 22, .2), 0 0 40px rgba(132, 204, 22, .1);
+  }
+
+  /* Subtítulo */
+  .subtitle {
+    color: var(--muted);
+    font-size: clamp(14px, 1.7vw, 18px)
+  }
+
+  /* Títulos de Card (H2) */
+  .card h2 {
+    font-size: 22px;
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+
+  /* Título do TOC */
+  .toc h3 {
+    margin: 0 0 10px;
+    font-size: 14px;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #d9ffd0;
+    text-shadow: 0 0 10px rgba(132, 204, 22, .3);
+  }
+
+  /* Data de Atualização */
+  .updated {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    align-items: center
+  }
+
+  /*
+  ==============================================
+  🖱️ Componentes Interativos
+  ==============================================
+  */
+
+  /* Barra de Ações (Toolbar) */
+  .toolbar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 18px 0 0
+  }
+
+  /* Botões Padrão (.btn) */
+  .btn {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, #11171c, #0c1216);
+    padding: 10px 14px;
+    border-radius: 12px;
+    color: var(--text);
+    cursor: pointer;
+    transition: .2s ease;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, .03) inset;
+  }
+
+  /* [MODIFICADO] Hover com glow agressivo */
+  .btn:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, .15);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .3), 0 0 15px rgba(132, 204, 22, .2);
+  }
+
+  /* Botão Primário (.btn.primary) */
+  .btn.primary {
+    background: linear-gradient(180deg, rgba(132, 204, 22, .18), rgba(132, 204, 22, .12));
+    border-color: rgba(132, 204, 22, .35);
+    text-shadow: 0 0 10px rgba(132, 204, 22, .3);
+  }
+
+  /* [MODIFICADO] Hover primário elétrico */
+  .btn.primary:hover {
+    border-color: rgba(132, 204, 22, .6);
+    box-shadow: 0 10px 30px rgba(132, 204, 22, .3),
+      0 0 20px rgba(132, 204, 22, .4),
+      0 0 0 1px rgba(132, 204, 22, .5);
+  }
+
+  /* Botão Ghost */
+  .btn.ghost {
+    background: transparent
+  }
+
+  /* Tag/Etiqueta */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    background: rgba(255, 255, 255, .02);
+    font-size: 12px
+  }
+
+  /* Indicador da Tag */
+  .tag i {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--brand);
+    /* [NOVO] Glow na tag */
+    box-shadow: 0 0 6px var(--brand);
+  }
+
+  /*
+  ==============================================
+  📦 Componentes de Conteúdo (Cards e TOC)
+  ==============================================
+  */
+
+  /* Índice (Table of Contents - TOC) */
+  .toc {
+    position: sticky;
+    top: 84px;
+    align-self: start;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    padding: 16px;
+    box-shadow: var(--shadow);
+    /* [NOVO] Fundo com ruído sutil */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  /* Campo de Busca do TOC */
+  .toc .search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 8px 10px;
+    background: #0c1216;
+    margin-bottom: 10px;
+    transition: .2s ease;
+  }
+
+  /* [NOVO] Foco com glow */
+  .toc .search:focus-within {
+    border-color: var(--brand-2);
+    box-shadow: 0 0 10px rgba(6, 182, 212, .3);
+  }
+
+  .toc input {
+    all: unset;
+    flex: 1;
+    color: var(--text);
+    font-size: 14px
+  }
+
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 6px;
+    max-height: 52vh;
+    overflow: auto
+  }
+
+  .toc a {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: var(--muted);
+    border: 1px solid transparent;
+    transition: .2s ease;
+  }
+
+  /* [MODIFICADO] Hover do link */
+  .toc a:hover {
+    color: var(--text);
+    background: rgba(132, 204, 22, .05);
+    transform: translateX(3px);
+  }
+
+  /* [MODIFICADO] Link ativo com glow */
+  .toc a.active {
+    color: #eaffea;
+    border-color: rgba(132, 204, 22, .4);
+    background: rgba(132, 204, 22, .1);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(132, 204, 22, .2);
+  }
+
+  .toc .mini {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap
+  }
+
+  .mini .btn {
+    padding: 6px 10px;
+    font-size: 12px
+  }
+
+  /* Cards de seção */
+  .card {
+    position: relative;
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    /* [NOVO] Fundo com ruído sutil */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  }
+
+  /* [MODIFICADO] Hover do card com glow */
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(132, 204, 22, .25);
+    box-shadow: var(--shadow), 0 0 25px rgba(132, 204, 22, .1);
+  }
+
+  /*
+  ==============================================
+  ➡️ Componentes Avançados
+  ==============================================
+  */
+
+  /* Acordeão */
+  .acc {
+    border-top: 1px dashed var(--line);
+    margin-top: 10px
+  }
+
+  .acc-item {
+    border-bottom: 1px dashed var(--line)
+  }
+
+  .acc-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    text-align: left;
+    padding: 14px 4px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background .2s ease;
+  }
+
+  /* [NOVO] Hover no botão do acordeão */
+  .acc-btn:hover {
+    background: rgba(132, 204, 22, .03);
+  }
+
+  .acc-btn .kicker {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase
+  }
+
+  .chev {
+    transition: transform .2s ease
+  }
+
+  .acc-panel {
+    grid-template-rows: 0fr;
+    display: grid;
+    transition: grid-template-rows .25s ease;
+  }
+
+  .acc-panel>div {
+    overflow: hidden
+  }
+
+  .acc-item.open .acc-panel {
+    grid-template-rows: 1fr
+  }
+
+  .acc-item.open .chev {
+    transform: rotate(180deg)
+  }
+
+  /* [NOVO] Estilo melhorado para o conteúdo do painel */
+  .acc-panel>div {
+    padding: 8px 4px 16px;
+  }
+
+  .acc-panel p,
+  .acc-panel ul {
+    color: #d6e7d3;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* Chips legais */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0
+  }
+
+  .chip {
+    border: 1px solid rgba(132, 204, 22, .2);
+    border-radius: 999px;
+    padding: 6px 10px;
+    color: #dff7d6;
+    background: rgba(132, 204, 22, .08);
+    font-size: 12px;
+    font-weight: 500;
+    transition: .2s ease;
+  }
+
+  /* [NOVO] Hover no chip */
+  .chip:hover {
+    background: rgba(132, 204, 22, .15);
+    transform: scale(1.05);
+  }
+
+  /* Rodapé de contato */
+  .cta {
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap
+  }
+
+  /* Switch (Alternador) */
+  .switch {
+    --w: 44px;
+    --h: 26px;
+    position: relative;
+    width: var(--w);
+    height: var(--h);
+    border-radius: 999px;
+    background: #202a31;
+    border: 1px solid var(--line);
+    cursor: pointer
+  }
+
+  .switch input {
+    display: none
+  }
+
+  .switch i {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: #b3c6b0;
+    transition: .2s
+  }
+
+  /* [MODIFICADO] Switch com glow */
+  .switch input:checked+i {
+    left: calc(100% - 2px - 22px);
+    background: var(--brand);
+    box-shadow: 0 0 8px var(--brand);
+  }
+
+  .switch[aria-disabled="true"] {
+    opacity: .5;
+    pointer-events: none
+  }
+
+  /*
+  ==============================================
+  🪟 Modais e Overlays
+  ==============================================
+  */
+
+  /* Botão back-to-top */
+  .to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 50;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .04);
+    color: #d5ffbf;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: .25s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .to-top.show {
+    opacity: 1;
+    transform: translateY(0)
+  }
+
+  /* [MODIFICADO] Hover com glow */
+  .to-top:hover {
+    border-color: var(--brand);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(132, 204, 22, .4);
+  }
+
+  /* Cookie banner */
+  .cookie {
+    position: fixed;
+    inset: auto 18px 18px 18px;
+    z-index: 70;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #0b1216, #0b0f12);
+    box-shadow: var(--shadow);
+    display: none;
+    backdrop-filter: blur(8px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .cookie .inner {
+    padding: 14px 16px;
+    display: flex;
+    gap: 14px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap
+  }
+
+  .cookie .actions {
+    display: flex;
+    gap: 8px
+  }
+
+  /* Modal de preferências */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+    z-index: 80;
+    display: none;
+    place-items: center;
+    padding: 24px;
+    backdrop-filter: blur(10px);
+  }
+
+  .modal .box {
+    width: min(680px, 100%);
+    background: linear-gradient(180deg, #0c1216, #0b0f12);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 18px;
+    /* [NOVO] Fundo com ruído sutil */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='10' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  .prefs {
+    display: grid;
+    gap: 10px;
+    margin: 10px 0
+  }
+
+  .pref {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, .02)
+  }
+
+  /*
+  ==============================================
+  ✨ Efeitos e Acessibilidade
+  ==============================================
+  */
+
+  /* [MODIFICADO] Reveal mais agressivo */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+    transition: .5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .reveal.in {
+    opacity: 1;
+    transform: none
+  }
+
+  /* Acessibilidade */
+  @media (prefers-reduced-motion:reduce) {
+    * {
+      transition: none !important;
+      animation: none !important
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <div class="container">
+    <h1>Política de Privacidade & Termos de Uso</h1>
+    <p class="subtitle">Transparência sobre como tratamos dados e as regras de utilização dos nossos serviços.</p>
+    <div class="toolbar">
+      <span class="tag"><i></i> Última atualização: <span id="updatedTag">—</span></span>
+      <button class="btn primary" id="btnPrint">Imprimir / Salvar PDF</button>
+      <button class="btn ghost" id="btnExpand">Expandir tudo</button>
+      <button class="btn ghost" id="btnCollapse">Recolher tudo</button>
+    </div>
+  </div>
+</header>
+
+<main class="container legal">
+  <aside class="toc reveal" id="toc">
+    <h3>Índice</h3>
+    <div class="search">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M21 21l-4.3-4.3"/><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/></svg>
+      <input id="search" placeholder="Buscar tópicos…">
+    </div>
+    <ul id="tocList"></ul>
+    <div class="mini">
+      <button class="btn" data-scroll="#privacy">Privacidade</button>
+      <button class="btn" data-scroll="#terms">Termos</button>
+      <button class="btn" data-scroll="#contact">Contato</button>
+    </div>
+  </aside>
+
+  <section id="content">
+    <article class="card reveal" id="privacy">
+      <h2>Política de Privacidade</h2>
+      <div class="updated">Esta política explica o que coletamos, por que, como usamos e os direitos do titular segundo a <strong>LGPD</strong> (Lei 13.709/2018).</div>
+
+      <div class="chips">
+        <span class="chip">LGPD – Bases Legais</span>
+        <span class="chip">Transparência</span>
+        <span class="chip">Segurança</span>
+      </div>
+
+      <div class="acc" data-acc>
+        <div class="acc-item open">
+          <button class="acc-btn">
+            <div><div class="kicker">1</div> Dados que Coletamos</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Coletamos dados estritamente necessários para a operação. Isso inclui:</p>
+            <ul>
+              <li><strong>Dados de Contato:</strong> Nome, e-mail e telefone (WhatsApp) fornecidos ativamente por você ao preencher formulários de proposta, contato ou ao se inscrever em nossas newsletters.</li>
+              <li><strong>Dados de Navegação (Cookies):</strong> Endereço IP, tipo de dispositivo, navegador e comportamento de uso no site. Usamos isso para segurança (prevenção a fraudes), análise estatística (melhoria de performance) e para otimizar sua experiência de usuário.</li>
+              <li><strong>Dados Contratuais:</strong> Razão social, CNPJ, endereço e dados de faturamento quando um serviço é formalmente contratado, necessários para a execução do contrato e obrigações fiscais.</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">2</div> Como Usamos os Dados</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Utilizamos os dados coletados com finalidades claras e específicas:</p>
+            <ul>
+              <li><strong>Atendimento e Suporte:</strong> Para responder suas solicitações, enviar propostas comerciais e fornecer suporte técnico ou operacional.</li>
+              <li><strong>Execução de Contrato:</strong> Para a efetiva prestação dos serviços de marketing digital, desenvolvimento ou consultoria que foram contratados.</li>
+              <li><strong>Melhoria e Estatística:</strong> Analisamos dados de navegação de forma agregada e, sempre que possível, anônima, para entender como nossos usuários interagem com o site e onde podemos melhorar.</li>
+              <li><strong>Segurança:</strong> Monitoramos acessos para prevenir incidentes, proteger nossos sistemas e identificar atividades fraudulentas.</li>
+              <li><strong>Marketing (com Consentimento):</strong> Exclusivamente com seu consentimento explícito, podemos enviar e-mails sobre atualizações, novos serviços ou ofertas que sejam relevantes ao seu perfil. Você pode se descadastrar (opt-out) a qualquer momento.</li>
+            </ul>
+          </div></div>
+        </div>
+        
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">3</div> Bases Legais (LGPD)</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Todo tratamento de dados na nossa agência segue as bases legais da LGPD:</p>
+            <ul>
+              <li><strong>Execução de contrato</strong> (Art. 7º, V): Quando você contrata nossos serviços ou solicita uma proposta (atos preliminares).</li>
+              <li><strong>Legítimo interesse</strong> (Art. 7º, IX): Para melhorias internas, análises de performance e segurança, sempre com avaliação de impacto e equilíbrio com seus direitos.</li>
+              <li><strong>Consentimento</strong> (Art. 7º, I): Para o envio de marketing, newsletters e uso de cookies não-essenciais (analíticos/marketing). Este pode ser revogado a qualquer momento.</li>
+              <li><strong>Cumprimento de obrigação legal/regulatória</strong> (Art. 7º, II): Para emissão de notas fiscais e guarda de registros exigidos por lei.</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">4</div> Compartilhamento e Transferências</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Não vendemos seus dados. Compartilhamos informações apenas com operadores essenciais para nossa atividade (ex: provedores de hospedagem, plataformas de CRM, ferramentas de análise, gateways de pagamento). Todos operam sob contratos estritos que exigem confidencialidade e adesão à LGPD. Em casos de transferências internacionais (ex: servidores nos EUA), garantimos que o provedor adote salvaguardas adequadas (como Standard Contractual Clauses).</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">5</div> Cookies & Tecnologias Similares</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Cookies são pequenos arquivos que nos ajudam a reconhecer seu dispositivo. Usamos eles para:</p>
+            <ul>
+              <li><strong>Necessários</strong>: Essenciais para o site funcionar (ex: login, segurança). Não podem ser desativados.</li>
+              <li><strong>Analíticos</strong>: Permitem medir o uso e a performance do site (ex: Google Analytics), ajudando-nos a melhorar.</li>
+              <li><strong>Marketing</strong>: Usados para personalizar anúncios e campanhas com base no seu interesse.</li>
+            </ul>
+            <p>Você pode gerenciar os cookies analíticos e de marketing a qualquer momento através do link "Preferências de Cookies" no rodapé do site.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">6</div> Direitos do Titular</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>A LGPD garante a você diversos direitos sobre seus dados. A qualquer momento, você pode solicitar: confirmação de tratamento, acesso aos dados, correção, anonimização ou eliminação (quando cabível), portabilidade, informação sobre compartilhamento, revogação de consentimento e revisão de decisões automatizadas. Para exercer seus direitos, entre em contato com nosso Encarregado (DPO) pelo canal de contato abaixo.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">7</div> Segurança & Retenção</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Adotamos medidas técnicas e administrativas (como criptografia, controle de acesso, firewalls) proporcionais ao risco para proteger seus dados. Mantemos os dados apenas pelo período necessário para cumprir o propósito original da coleta, ou para atender requisitos legais (ex: guarda de registros fiscais por 5 anos). Após esse período, os dados são eliminados de forma segura ou anonimizados.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">8</div> Crianças e Adolescentes</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Nossos serviços e nosso site não se destinam a menores de 18 anos. Não coletamos intencionalmente dados de crianças ou adolescentes. Se identificarmos que ocorreu uma coleta indevida, tomaremos as providências imediatas para a remoção desses dados.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">9</div> Alterações desta Política</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Esta Política pode ser atualizada para refletir novas práticas ou mudanças na legislação. Quando isso ocorrer, a data de "Última atualização" no topo da página será alterada. Em caso de mudanças significativas, poderemos notificá-lo por e-mail ou com um aviso em destaque no site.</p>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <div class="tag"><i></i> Data efetiva: <span id="effectiveDate">—</span></div>
+        <div class="mini">
+          <button class="btn" data-scroll="#contact">Falar com o DPO</button>
+          <button class="btn" id="openPrefs">Preferências de Cookies</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal" id="terms">
+      <h2>Termos de Uso</h2>
+      <div class="updated">Ao usar nosso site ou contratar nossos serviços, você concorda com os termos abaixo.</div>
+
+      <div class="acc" data-acc>
+        <div class="acc-item open">
+          <button class="acc-btn">
+            <div><div class="kicker">1</div> Aceitação dos Termos</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Ao acessar o site [SEUDOMINIO.COM] ou contratar nossos serviços, você declara ter lido, entendido e concordado integralmente com estes Termos de Uso e com nossa Política de Privacidade. Se você não concordar com qualquer parte destes termos, não deverá utilizar o site ou nossos serviços.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">2</div> Serviços e Contratação</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Os detalhes específicos de escopo, prazos, entregáveis e valores dos serviços de marketing e tecnologia serão regidos por uma Proposta Comercial e/ou Contrato de Prestação de Serviços específico, assinado entre as partes. A execução dos serviços depende da cooperação do cliente, incluindo o fornecimento de informações, materiais e aprovações nos prazos solicitados.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">3</div> Uso Aceitável</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Você concorda em não utilizar nossos serviços ou site para:</p>
+            <ul>
+              <li>Publicar, enviar ou armazenar qualquer conteúdo ilícito, difamatório, ofensivo, pornográfico, ou que viole direitos de terceiros (incluindo propriedade intelectual) ou leis aplicáveis.</li>
+              <li>Tentar obter acesso não autorizado aos nossos sistemas, realizar engenharia reversa, ou interferir na infraestrutura tecnológica (ataques DDoS, injeção de malware, etc.).</li>
+              <li>Violar diretrizes de uso de APIs ou plataformas de terceiros (ex: Google, Meta) que sejam parte do escopo do serviço.</li>
+              <li>Enviar SPAM ou praticar qualquer forma de comunicação não solicitada em massa.</li>
+            </ul>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">4</div> Propriedade Intelectual</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Todo o conteúdo deste site (textos, imagens, layouts, marcas, código-fonte) é de propriedade intelectual da [NOME DA SUA AGÊNCIA] ou licenciado por terceiros, protegido por lei. É vedada a cópia, reprodução ou distribuição sem nossa autorização prévia e expressa. Os materiais criados para o cliente no âmbito de um contrato (ex: peças de design, códigos de website) terão sua propriedade e licença de uso definidas no respectivo contrato.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">5</div> Limitação de Responsabilidade</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Na extensão máxima permitida pela legislação, a [NOME DA SUA AGÊNCIA] não será responsável por danos indiretos, incidentais, lucros cessantes, perda de dados ou falhas decorrentes de caso fortuito, força maior, mau uso da plataforma pelo cliente, ou falhas de serviços de terceiros (como provedores de internet, hospedagem ou plataformas de anúncios). Nossa responsabilidade total, em qualquer caso, limita-se ao valor pago pelo cliente nos últimos 3 (três) meses de serviço.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">6</div> Rescisão</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Podemos encerrar ou suspender seu acesso ao site ou aos serviços imediatamente, sem aviso prévio, em caso de violação grave destes Termos. As condições de rescisão dos serviços contratados (multas, aviso prévio) serão detalhadas no contrato específico. Obrigações de pagamento, confidencialidade e propriedade intelectual permanecem vigentes mesmo após a rescisão.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">7</div> Foro e Legislação</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de [SUA CIDADE]/[SEU ESTADO] para dirimir quaisquer conflitos, renunciando a qualquer outro, por mais privilegiado que seja, salvo disposição contratual diversa ou específica em contratos de prestação de serviço.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-btn">
+            <div><div class="kicker">8</div> Alterações dos Termos</div>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <div class="acc-panel"><div>
+            <p>Reservamo-nos o direito de atualizar estes Termos a qualquer momento para refletir mudanças legais, de mercado ou em nossos serviços. A versão vigente será sempre a publicada nesta página. Recomendamos que você a revise periodicamente. O uso contínuo do site após as mudanças implica sua aceitação.</p>
+          </div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card reveal" id="contact">
+      <h2>Encarregado (DPO) & Contato</h2>
+      <p>Para dúvidas, solicitações referentes à LGPD (seus direitos de titular) ou assuntos jurídicos, entre em contato com nosso Encarregado pela Proteção de Dados (DPO):</p>
+      <ul>
+        <li><strong>Encarregado (DPO):</strong> [Nome do DPO ou "Departamento Jurídico"]</li>
+        <li><strong>E-mail:</strong> <a href="mailto:privacidade@suaagencia.com" id="mail">privacidade@suaagencia.com</a></li>
+        <li><strong>WhatsApp:</strong> <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">+55 (11) 99999-9999</a></li>
+        <li><strong>Endereço:</strong> [Seu Endereço Completo, se aplicável]</li>
+      </ul>
+      <div class="cta">
+        <button class="btn primary" id="copyMail">Copiar e-mail do DPO</button>
+        <span class="tag"><i></i> Resposta em até 2 dias úteis</span>
+      </div>
+    </article>
+  </section>
+</main>
+
+<button class="to-top" id="toTop" aria-label="Voltar ao topo">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="cookie" id="cookie">
+  <div class="inner">
+    <div>
+      <strong>Nós valorizamos sua privacidade.</strong><br>
+      Usamos cookies para melhorar sua experiência, analisar tráfego e personalizar conteúdos e anúncios. Você pode gerenciar suas preferências.
+    </div>
+    <div class="actions">
+      <button class="btn" id="cookiePrefs">Preferências</button>
+      <button class="btn primary" id="cookieAccept">Aceitar todos</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="box">
+    <h3 style="margin:0 0 8px">Preferências de Privacidade</h3>
+    <p class="subtitle">Ajuste as categorias de cookies que você permite. Os cookies necessários são sempre ativos para o funcionamento do site.</p>
+    <div class="prefs">
+      <div class="pref">
+        <div>
+          <strong>Necessários</strong><br><span class="subtitle">Essenciais ao funcionamento e segurança.</span>
+        </div>
+        <label class="switch" aria-disabled="true" title="Sempre ativo">
+          <input type="checkbox" checked disabled><i></i>
+        </label>
+      </div>
+      <div class="pref">
+        <div>
+          <strong>Analíticos (Performance)</strong><br><span class="subtitle">Medição de uso e performance do site (anônimo).</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="ck-analytics"><i></i>
+        </label>
+      </div>
+      <div class="pref">
+        <div>
+          <strong>Marketing (Personalização)</strong><br><span class="subtitle">Personalização de conteúdos e campanhas.</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="ck-marketing"><i></i>
+        </label>
+      </div>
+    </div>
+    <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:16px"> <button class="btn ghost" id="modalClose">Rejeitar não essenciais</button>
+      <button class="btn primary" id="modalSave">Salvar preferências</button> </div>
+  </div>
+</div>
+
+<script>
+/* ===== Util ===== */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const scrollToSel = sel => {
+  const el = document.querySelector(sel);
+  if(!el) return;
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+};
+
+/* ===== Datas ===== */
+const now = new Date();
+const fmtDate = (date) => {
+    // [MODIFICADO] Formato brasileiro
+    const d = date.getDate().toString().padStart(2, '0');
+    const m = (date.getMonth() + 1).toString().padStart(2, '0');
+    const y = date.getFullYear();
+    return `${d}/${m}/${y}`;
+};
+const stamp = fmtDate(now); 
+$('#updatedTag').textContent = stamp;
+$('#effectiveDate').textContent = stamp;
+
+/* ===== Acordeões ===== */
+$$('[data-acc]').forEach(acc => {
+  acc.addEventListener('click', e=>{
+    const btn = e.target.closest('.acc-btn');
+    if(!btn) return;
+    const item = btn.parentElement;
+    
+    // [NOVO] Fechar outros itens (comportamento de acordeão real)
+    if (!item.classList.contains('open')) {
+        // Opcional: Descomente a linha abaixo para fechar os outros
+        // acc.querySelectorAll('.acc-item.open').forEach(openItem => openItem.classList.remove('open'));
+    }
+    
+    item.classList.toggle('open');
+  });
+});
+$('#btnExpand').addEventListener('click', ()=>{
+  $$('.acc-item').forEach(i=>i.classList.add('open'));
+});
+$('#btnCollapse').addEventListener('click', ()=>{
+  $$('.acc-item').forEach(i=>i.classList.remove('open'));
+});
+
+/* ===== TOC dinâmico + busca ===== */
+const tocList = $('#tocList');
+const sections = $$('#content article');
+sections.forEach(sec=>{
+  const a = document.createElement('a');
+  a.href = `#${sec.id}`;
+  a.textContent = sec.querySelector('h2').textContent;
+  const li = document.createElement('li'); li.appendChild(a);
+  tocList.appendChild(li);
+});
+$('#toc').addEventListener('click', e=>{
+  const btn = e.target.closest('[data-scroll]');
+  if(btn){ e.preventDefault(); scrollToSel(btn.dataset.scroll); }
+});
+tocList.addEventListener('click', e=>{
+  if(e.target.tagName==='A'){
+    e.preventDefault();
+    scrollToSel(e.target.getAttribute('href'));
+    // [NOVO] Remover foco da busca
+    $('#search').blur();
+  }
+});
+/* realce item ativo */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(ent=>{
+    const link = tocList.querySelector(`a[href="#${ent.target.id}"]`);
+    if(!link) return;
+    if(ent.isIntersecting){ 
+        $$('#tocList a').forEach(l=>l.classList.remove('active')); 
+        link.classList.add('active'); 
+    }
+  });
+},{rootMargin:'-40% 0px -55% 0px', threshold:0.01});
+sections.forEach(s=>io.observe(s));
+
+/* busca */
+$('#search').addEventListener('input', e=>{
+  const q = e.target.value.trim().toLowerCase();
+  let firstHit = null;
+  $$('#tocList a').forEach(a=>{
+    const hit = a.textContent.toLowerCase().includes(q);
+    a.parentElement.style.display = hit ? '' : 'none';
+    if(hit && !firstHit) firstHit = a;
+  });
+});
+// [NOVO] Pressionar Enter na busca rola para o primeiro resultado
+$('#search').addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        const firstHit = tocList.querySelector('li[style*="display: none"] ~ li:not([style*="display: none"]) a, li:not([style*="display: none"]) a'); // Tenta achar o primeiro visível
+        if (firstHit) {
+            firstHit.click();
+        }
+    }
+});
+
+
+/* ===== Progresso de leitura ===== */
+const progress = $('#progress');
+const onScroll = ()=>{
+  const h = document.documentElement;
+  const percent = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progress.style.width = percent + '%';
+  /* mostrar botão topo */
+  $('#toTop').classList.toggle('show', h.scrollTop > 600);
+};
+document.addEventListener('scroll', onScroll, { passive: true }); // [MODIFICADO] Otimização
+
+/* ===== Voltar ao topo ===== */
+$('#toTop').addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ===== Reveal on scroll ===== */
+const io2 = new IntersectionObserver(ents=>{
+  ents.forEach(ent=> {
+      if (ent.isIntersecting) {
+          ent.target.classList.add('in');
+          io2.unobserve(ent.target); // [NOVO] Animar apenas uma vez
+      }
+  });
+},{threshold:.1}); // [MODIFICADO] Threshold
+$$('.reveal').forEach(el=> io2.observe(el));
+
+/* ===== Print/PDF ===== */
+$('#btnPrint').addEventListener('click', ()=> window.print());
+
+/* ===== Copiar e-mail ===== */
+$('#copyMail').addEventListener('click', async (e)=>{
+  const email = $('#mail').textContent;
+  const btn = e.currentTarget;
+  const originalText = btn.textContent;
+  try{ 
+      await navigator.clipboard.writeText(email); 
+      btn.textContent = 'Copiado!'; // [MODIFICADO] Feedback melhor
+      btn.classList.remove('primary'); // Visual feedback
+  }
+  catch{ 
+      prompt('Copie o e-mail:', email); 
+  }
+  setTimeout(() => { // Resetar botão
+      btn.textContent = originalText;
+      btn.classList.add('primary');
+  }, 2000);
+});
+
+/* ===== Smooth scroll nos botões/mini ===== */
+$$('[data-scroll]').forEach(btn => btn.addEventListener('click', e=>{
+  e.preventDefault(); scrollToSel(btn.dataset.scroll);
+}));
+
+/* ===== Cookie banner & prefs ===== */
+const LS_KEY = 'cookie-prefs-v1';
+const cookie = $('#cookie');
+const modal = $('#modal');
+const state = {
+  analytics:false, 
+  marketing:false,
+  load(){ 
+      try{ 
+          const s = JSON.parse(localStorage.getItem(LS_KEY) || 'null');
+          if (s) {
+              Object.assign(this, s);
+          }
+      } catch {} 
+  },
+  save(){ 
+      localStorage.setItem(LS_KEY, JSON.stringify({analytics:this.analytics, marketing:this.marketing})); 
+      // [NOVO] Recarregar a página para aplicar (ou não) os scripts de tracking
+      // window.location.reload(); 
+      // (Descomente acima se seus scripts de GA/Meta dependem disso)
+  }
+};
+
+state.load();
+/* set switches */
+$('#ck-analytics') && ($('#ck-analytics').checked = !!state.analytics);
+$('#ck-marketing') && ($('#ck-marketing').checked = !!state.marketing);
+
+/* banner show first time */
+if(localStorage.getItem(LS_KEY) == null){ 
+    setTimeout(() => { // [NOVO] Atraso para não sobrecarregar o load
+        cookie.style.display = 'block';
+    }, 2000);
+}
+
+/* open/close modal */
+const openModal = ()=>{ modal.style.display='grid'; }
+const closeModal = ()=>{ modal.style.display='none'; }
+$('#cookiePrefs').addEventListener('click', ()=>{ cookie.style.display='none'; openModal(); });
+$('#openPrefs').addEventListener('click', openModal);
+// [MODIFICADO] Botão de fechar também rejeita
+$('#modalClose').addEventListener('click', ()=>{
+    state.analytics = false;
+    state.marketing = false;
+    $('#ck-analytics').checked = false;
+    $('#ck-marketing').checked = false;
+    state.save();
+    closeModal();
+    // alert('Preferências salvas. Cookies não essenciais foram rejeitados.');
+});
+modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+
+/* accept all */
+$('#cookieAccept').addEventListener('click', ()=>{
+  state.analytics = true; 
+  state.marketing = true; 
+  state.save();
+  cookie.style.display='none';
+});
+/* save prefs */
+$('#modalSave').addEventListener('click', ()=>{
+  state.analytics = $('#ck-analytics').checked;
+  state.marketing = $('#ck-marketing').checked;
+  state.save();
+  closeModal();
+  // alert('Preferências salvas.');
+});
+
+/* ===== Accessibility: teclado no acordeão ===== */
+$$('.acc-btn').forEach(btn=>{
+  btn.addEventListener('keydown', e=>{
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); btn.click(); }
+  });
+});
+</script>
+</body>
+</html>
