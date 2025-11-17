@@ -10,7 +10,7 @@ export function Hero() {
   const { scrollY } = useScroll()
   const y1 = useTransform(scrollY, [0, 500], [0, 250])
   const y2 = useTransform(scrollY, [0, 500], [0, -150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
+  // removido o opacity ligado ao scroll
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -39,7 +39,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-30 pb-16 px-4 overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center pt-24 md:pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem]"
@@ -56,7 +56,6 @@ export function Hero() {
           }}
         />
 
-        {/* Enhanced particles with more variety */}
         {particles.map((particle, i) => (
           <motion.div
             key={i}
@@ -81,9 +80,8 @@ export function Hero() {
           />
         ))}
 
-        {/* Animated gradient orbs */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-lime-500/30 via-cyan-500/20 to-transparent rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-[400px] sm:w-[500px] md:w-[600px] h-[400px] sm:h-[500px] md:h-[600px] bg-gradient-to-br from-lime-500/30 via-cyan-500/20 to-transparent rounded-full blur-3xl"
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -93,7 +91,7 @@ export function Hero() {
           transition={{ duration: 15, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
         />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-purple-500/30 via-pink-500/20 to-transparent rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-[350px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[450px] md:h-[500px] bg-gradient-to-br from-purple-500/30 via-pink-500/20 to-transparent rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.4, 0.7, 0.4],
@@ -104,16 +102,19 @@ export function Hero() {
         />
       </div>
 
-      <motion.div style={{ opacity }} className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-          {/* Left side: Content */}
-          <div className="space-y-10">
+      <motion.div
+        className="container mx-auto relative z-10"
+        style={{ opacity: 0.85 }}
+      >
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* LEFT SIDE */}
+          <div className="space-y-8 md:space-y-10 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 30, scale: 0.8 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-lime-500/10 border-2 border-lime-500/30 backdrop-blur-xl shadow-[0_0_30px_rgba(132,204,22,0.3)] relative overflow-hidden group"
+              className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-lime-500/10 border-2 border-lime-500/30 backdrop-blur-xl shadow-[0_0_30px_rgba(132,204,22,0.3)] relative overflow-hidden group mx-auto lg:mx-0"
             >
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-500/20 to-transparent"
@@ -126,7 +127,7 @@ export function Hero() {
               >
                 <Sparkles className="w-5 h-5 text-lime-400 relative z-10" />
               </motion.div>
-              <span className="text-base font-bold text-lime-400 relative z-10">
+              <span className="text-sm sm:text-base font-bold text-lime-400 relative z-10">
                 Sites profissionais em tempo recorde
               </span>
             </motion.div>
@@ -135,7 +136,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-bold text-balance leading-[1.05] text-white"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-balance leading-tight md:leading-[1.05] text-white max-w-3xl mx-auto lg:mx-0"
             >
               Seu negócio no{" "}
               <span className="relative inline-block">
@@ -195,7 +196,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="text-xl md:text-2xl text-gray-100 text-pretty leading-relaxed"
+              className="text-base sm:text-lg md:text-2xl text-gray-100 text-pretty leading-relaxed max-w-2xl mx-auto lg:mx-0"
             >
               Criamos sites de alta conversão, gerenciamos tráfego pago e otimizamos sua presença digital com{" "}
               <motion.span
@@ -217,7 +218,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="flex flex-col sm:flex-row items-start gap-6"
+              className="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-4 sm:gap-6 max-w-xl mx-auto lg:mx-0"
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -230,6 +231,7 @@ export function Hero() {
                   ],
                 }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+                className="w-full sm:w-auto"
               >
                 <CTAButton size="lg" />
               </motion.div>
@@ -237,7 +239,7 @@ export function Hero() {
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "rgba(132, 204, 22, 0.6)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 rounded-2xl border-2 border-gray-700 bg-gray-900/50 backdrop-blur-xl text-white font-bold text-lg hover:bg-gray-800/70 transition-all flex items-center gap-4 relative overflow-hidden"
+                className="group w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-2xl border-2 border-gray-700 bg-gray-900/50 backdrop-blur-xl text-white font-bold text-base sm:text-lg hover:bg-gray-800/70 transition-all flex items-center justify-center sm:justify-start gap-3 sm:gap-4 relative overflow-hidden"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -245,11 +247,11 @@ export function Hero() {
                   transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
                 />
                 <motion.div
-                  className="w-12 h-12 rounded-full bg-lime-500/20 flex items-center justify-center group-hover:bg-lime-500/30 transition-colors relative z-10"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-lime-500/20 flex items-center justify-center group-hover:bg-lime-500/30 transition-colors relative z-10"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <Play className="w-6 h-6 text-lime-400 fill-lime-400" />
+                  <Play className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400 fill-lime-400" />
                 </motion.div>
                 <span className="relative z-10">Ver como funciona</span>
               </motion.button>
@@ -259,13 +261,13 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.2 }}
-              className="flex flex-wrap items-center gap-8 pt-6"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-8 pt-4 sm:pt-6"
             >
               <motion.div whileHover={{ scale: 1.05 }} className="flex items-center gap-3 text-gray-300">
                 <div className="w-10 h-10 rounded-full bg-lime-500/20 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-lime-400" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-sm font-semibold text-white">Entrega em 2 dias</div>
                   <div className="text-xs text-gray-400">Garantido</div>
                 </div>
@@ -274,7 +276,7 @@ export function Hero() {
                 <div className="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center">
                   <Award className="w-5 h-5 text-cyan-400" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-sm font-semibold text-white">NPS 9.4</div>
                   <div className="text-xs text-gray-400">Satisfação</div>
                 </div>
@@ -283,7 +285,7 @@ export function Hero() {
                 <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
                   <TrendingUp className="w-5 h-5 text-purple-400" />
                 </div>
-                <div>
+                <div className="text-left">
                   <div className="text-sm font-semibold text-white">+147 Sites</div>
                   <div className="text-xs text-gray-400">Entregues</div>
                 </div>
@@ -291,8 +293,8 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right side: Animated elements */}
-          <div className="relative h-[600px] hidden lg:block">
+          {/* RIGHT SIDE (desktop only) */}
+          <div className="relative hidden lg:block lg:h-[600px]">
             <motion.div
               style={{ y: y1 }}
               animate={{
@@ -331,7 +333,6 @@ export function Hero() {
               transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             />
 
-            {/* Floating stats cards - enhanced with better design */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
