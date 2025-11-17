@@ -1,5 +1,5 @@
-export const AGENCIA = "VelocityWeb"
+export const AGENCIA = "Agência Digital"
 export const SLOGAN = "Transforme seu negócio com velocidade e inovação digital"
-export const WHATSAPP = "5511999999999"
+export const WHATSAPP = "5511917092509"
 export const WHATSAPP_MSG = "Olá! Quero transformar meu negócio no digital. Vamos conversar?"
 export const CIDADE_UF = "São Paulo, SP"
