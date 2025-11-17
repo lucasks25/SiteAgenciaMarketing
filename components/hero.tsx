@@ -39,7 +39,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-16 px-4 overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center justify-center pt-30 pb-16 px-4 overflow-hidden bg-black">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem]"
@@ -178,7 +178,7 @@ export function Hero() {
                   }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
-                  2 horas
+                  2 dias
                 </motion.span>
                 <motion.div
                   className="absolute -inset-2 bg-lime-400/30 blur-2xl -z-10"
@@ -231,24 +231,13 @@ export function Hero() {
                 }}
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               >
-                <CTAButton size="lg" className="text-xl px-10 py-7 relative overflow-hidden group">
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    animate={{ x: ["-100%", "100%"] }}
-                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatDelay: 2 }}
-                  />
-                  <span className="relative z-10 flex items-center gap-3">
-                    <Zap className="w-6 h-6" />
-                    Começar Agora
-                    <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </CTAButton>
+                <CTAButton size="lg" />
               </motion.div>
 
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "rgba(132, 204, 22, 0.6)" }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-10 py-7 rounded-2xl border-2 border-gray-700 bg-gray-900/50 backdrop-blur-xl text-white font-bold text-xl hover:bg-gray-800/70 transition-all flex items-center gap-4 relative overflow-hidden"
+                className="group px-8 py-4 rounded-2xl border-2 border-gray-700 bg-gray-900/50 backdrop-blur-xl text-white font-bold text-lg hover:bg-gray-800/70 transition-all flex items-center gap-4 relative overflow-hidden"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
@@ -277,7 +266,7 @@ export function Hero() {
                   <Clock className="w-5 h-5 text-lime-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">Entrega em 2h</div>
+                  <div className="text-sm font-semibold text-white">Entrega em 2 dias</div>
                   <div className="text-xs text-gray-400">Garantido</div>
                 </div>
               </motion.div>
@@ -295,7 +284,7 @@ export function Hero() {
                   <TrendingUp className="w-5 h-5 text-purple-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-white">+247 Sites</div>
+                  <div className="text-sm font-semibold text-white">+147 Sites</div>
                   <div className="text-xs text-gray-400">Entregues</div>
                 </div>
               </motion.div>
@@ -370,7 +359,7 @@ export function Hero() {
                   }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
-                  +<CountUp end={247} duration={2} />
+                  +<CountUp end={147} duration={2} />
                 </motion.div>
                 <div className="text-sm text-gray-300 font-semibold">Sites Entregues</div>
               </div>
@@ -403,7 +392,7 @@ export function Hero() {
                   }}
                   transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
                 >
-                  1h47
+                  1 dia
                 </motion.div>
                 <div className="text-sm text-gray-300 font-semibold">Tempo Médio</div>
               </div>

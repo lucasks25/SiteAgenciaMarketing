@@ -8,7 +8,7 @@ export function WorkProcess() {
     {
       number: "01",
       icon: MessageCircle,
-      title: "Briefing Rápido",
+      title: "Entrevista Inicial",
       description: "Conversa de 15 minutos no WhatsApp para entender seu negócio, público-alvo e objetivos",
       duration: "15 min",
       color: "lime",
@@ -17,7 +17,7 @@ export function WorkProcess() {
     {
       number: "02",
       icon: Palette,
-      title: "Design & Estrutura",
+      title: "Descobrimos seus interesses",
       description: "Seleção do template ideal e personalização com sua identidade visual, cores e conteúdo",
       duration: "45 min",
       color: "cyan",
@@ -26,7 +26,7 @@ export function WorkProcess() {
     {
       number: "03",
       icon: Target,
-      title: "Otimização",
+      title: "Começamos o Projeto",
       description: "Configuração de SEO, performance, pixels de conversão e integrações necessárias",
       duration: "30 min",
       color: "purple",
@@ -112,7 +112,7 @@ export function WorkProcess() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            Um método eficiente e testado em mais de 247 projetos entregues
+            Um método eficiente e testado 
           </motion.p>
         </motion.div>
 
@@ -154,7 +154,7 @@ export function WorkProcess() {
               <Zap className="w-8 h-8 text-white" />
             </motion.div>
             <div className="text-left">
-              <div className="font-bold text-2xl text-white mb-1">Total: 2 horas</div>
+              <div className="font-bold text-2xl text-white mb-1">Total: 2 dias</div>
               <div className="text-base text-neutral-300">Do briefing até a publicação do seu site</div>
             </div>
           </motion.div>

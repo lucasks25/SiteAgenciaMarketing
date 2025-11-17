@@ -9,27 +9,27 @@ export function FAQ() {
 
   const faqs = [
     {
-      question: "Como vocês conseguem entregar em até 2 horas?",
+      question: "Como vocês conseguem entregar em até 2 dias?",
       answer:
-        "Usamos templates premium otimizados e um processo ultra-eficiente. O prazo de 2h é válido para landing pages essenciais (one-page) com escopo padrão: Hero, Benefícios, Prova Social, Portfólio, FAQ e CTA.",
+        "Usamos templates premium otimizados e um processo ultra-eficiente. O prazo de 2 dias é válido para landing pages essenciais (one-page) com escopo padrão: Hero, Benefícios, Prova Social, Portfólio, FAQ e CTA.",
       category: "Entrega",
     },
     {
-      question: "O que está incluído no prazo de 2 horas?",
+      question: "O que está incluído no prazo de 2 dias?",
       answer:
-        "Landing page completa com Hero, seções essenciais, CTA WhatsApp, SEO básico (meta tags), pixel de conversão, publicação guiada e 1 rodada de ajustes nas primeiras 24h.",
+        "Landing page completa com Hero, seções essenciais, CTA WhatsApp, SEO básico (meta tags), publicação guiada e 1 rodada de ajustes nas primeiras 24h *depois da confirmação*.",
       category: "Entrega",
     },
     {
       question: "Posso solicitar revisões após a entrega?",
       answer:
-        "Sim! O plano SpeedSite inclui 1 rodada de ajustes, Performance Pro inclui 3 rodadas, e Scale Pro oferece ajustes ilimitados durante o período de suporte.",
+        "Sim! O plano inicial inclui 1 rodada de ajustes, Performance Pro inclui 2 rodadas, e Scale Pro oferece ajustes ilimitados durante o período de suporte.",
       category: "Suporte",
     },
     {
       question: "Preciso ter domínio e hospedagem?",
       answer:
-        "Não necessariamente. Oferecemos configuração guiada e podemos recomendar as melhores opções de hospedagem. Se você já tiver, configuramos tudo para você.",
+        "Não! Oferecemos o serviço completo com hospedagem da nossa parte, caso seja da vontade do cliente, configuração guiada e podemos recomendar as melhores opções de hospedagem. Se você já tiver, configuramos tudo para você.",
       category: "Técnico",
     },
     {
@@ -65,7 +65,7 @@ export function FAQ() {
     {
       question: "Como é o processo de pagamento?",
       answer:
-        "Aceitamos PIX, cartão de crédito (parcelado em até 12x) e boleto. Pagamento seguro via plataforma de pagamentos. Iniciamos o trabalho após confirmação do pagamento.",
+        "Aceitamos PIX, cartão de crédito (parcelado em até 12x). Pagamento seguro via plataforma de pagamentos. Iniciamos o trabalho após confirmação do pagamento.",
       category: "Pagamento",
     },
     {

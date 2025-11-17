@@ -8,7 +8,7 @@ export function Pricing() {
   const plans = [
     {
       name: "SpeedSite",
-      subtitle: "Entrega em 2h",
+      subtitle: "Entrega em 2 dias",
       description: "Perfeito para quem precisa de presença digital rápida e profissional",
       popular: false,
       icon: Zap,
@@ -18,8 +18,6 @@ export function Pricing() {
         "Hero + Benefícios + Prova Social",
         "Portfólio + FAQ + CTA",
         "CTA WhatsApp integrado",
-        "SEO básico (meta tags)",
-        "Pixel de conversão",
         "Publicação guiada",
         "1 rodada de ajustes",
       ],
@@ -39,7 +37,7 @@ export function Pricing() {
         "SEO técnico completo",
         "Schema markup",
         "1 mês de otimização CRO",
-        "3 rodadas de ajustes",
+        "2 rodadas de ajustes",
       ],
     },
     {
@@ -55,7 +53,6 @@ export function Pricing() {
         "Testes A/B configurados",
         "Google Sua Loja completo",
         "Campanha de tráfego inicial",
-        "Automações + CRM",
         "3 meses de suporte",
         "Ajustes ilimitados",
       ],

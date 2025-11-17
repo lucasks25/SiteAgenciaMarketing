@@ -16,7 +16,7 @@ export function Services() {
   const services = [
     {
       icon: Globe,
-      title: "Sites em até 2h",
+      title: "Sites em até 2 dias",
       description: "Landing pages profissionais com design premium e performance 95+",
       features: ["Design responsivo", "SEO otimizado", "Performance 95+", "CTA integrado"],
       gradient: "from-cyan-500 to-cyan-600",

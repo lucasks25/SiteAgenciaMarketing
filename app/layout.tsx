@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   keywords: [
     "criação de sites",
     "sites em 2 horas",
+    "sites em 2 DIAS",
     "landing page profissional",
     "tráfego pago",
     "google ads",
@@ -55,15 +56,15 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${AGENCIA} - Sites Profissionais em 2 Horas`,
+        alt: `${AGENCIA} - Sites Profissionais em 2 dias`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${AGENCIA} | ${SLOGAN}`,
-    description: "Sites profissionais prontos em até 2h. Design premium e performance garantida.",
-    creator: "@velocityweb",
+    description: "Sites profissionais prontos em até 2 dias. Design premium e performance garantida.",
+    creator: "@lucas.ksz",
     images: ["/opengraph-image"],
   },
   robots: {

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Permite acessar o dev server a partir desse IP na rede
+  allowedDevOrigins: ['25.52.57.100:3000'],
+
   typescript: {
     ignoreBuildErrors: true,
   },

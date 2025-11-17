@@ -12,7 +12,7 @@ export function StatsCounter() {
   const stats = [
     {
       icon: Globe,
-      value: 247,
+      value: 147,
       suffix: "+",
       label: "Sites Entregues",
       color: "lime",
@@ -44,8 +44,8 @@ export function StatsCounter() {
     },
     {
       icon: Clock,
-      value: 1.47,
-      suffix: "h",
+      value: 1 ,
+      suffix: " dia",
       label: "Tempo Médio",
       color: "lime",
       gradient: "from-lime-500 to-cyan-500",

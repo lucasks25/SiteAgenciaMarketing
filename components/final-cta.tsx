@@ -3,10 +3,42 @@
 import { motion } from "framer-motion"
 import { CTAButton } from "./cta-button"
 import { Zap, Sparkles, CheckCircle2 } from "lucide-react"
+import React, { useState, useEffect } from "react"
+
+// Define a interface para armazenar as posições dos círculos
+interface ParticlePosition {
+  left: string
+  top: string
+  background: string
+}
+
+// Número de partículas para gerar
+const NUM_PARTICLES = 20
+
+// Função para gerar uma única partícula
+const generateParticle = (i: number): ParticlePosition => ({
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  background: i % 3 === 0 ? "#84cc16" : i % 3 === 1 ? "#06b6d4" : "#a855f7",
+})
 
 export function FinalCTA() {
+  // 1. Crie um estado para armazenar as posições geradas.
+  const [particlePositions, setParticlePositions] = useState<ParticlePosition[]>([])
+
+  // 2. Use useEffect para gerar as posições APENAS no cliente
+  // (Resolve o erro de hidratação causado pelo Math.random())
+  useEffect(() => {
+    // Gera as posições uma única vez
+    const initialPositions = Array.from({ length: NUM_PARTICLES }).map((_, i) =>
+      generateParticle(i)
+    )
+    setParticlePositions(initialPositions)
+  }, []) // Array de dependência vazio garante que ele rode apenas uma vez
+
   return (
     <section className="relative py-32 px-4 overflow-hidden bg-black">
+      {/* Gradiente de fundo principal animado */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-lime-950/30 via-cyan-950/20 to-purple-950/30"
         animate={{
@@ -22,6 +54,7 @@ export function FinalCTA() {
         }}
       />
 
+      {/* Blobs de fundo animados (blur) */}
       <motion.div
         className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-gradient-to-br from-lime-500/30 via-cyan-500/20 to-transparent rounded-full blur-3xl"
         animate={{
@@ -43,15 +76,16 @@ export function FinalCTA() {
         }}
         transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY }}
       />
-
-      {Array.from({ length: 20 }).map((_, i) => (
+      
+      {/* Partículas (Pontos) Animadas - Usando o estado corrigido */}
+      {particlePositions.map((item, i) => (
         <motion.div
           key={i}
           className="absolute w-2 h-2 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            background: i % 3 === 0 ? "#84cc16" : i % 3 === 1 ? "#06b6d4" : "#a855f7",
+            left: item.left, // Posição fixa para evitar Hydration Error
+            top: item.top,   // Posição fixa para evitar Hydration Error
+            background: item.background,
           }}
           animate={{
             y: [0, -150, 0],
@@ -66,14 +100,14 @@ export function FinalCTA() {
           }}
         />
       ))}
-
+      
       <div className="container mx-auto relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
+          {/* Tag de Vagas Limitadas */}
           <motion.div
             initial={{ scale: 0, rotate: -180 }}
             whileInView={{ scale: 1, rotate: 0 }}
@@ -95,6 +129,7 @@ export function FinalCTA() {
             <span className="text-base font-bold text-lime-400 relative z-10">Vagas limitadas por mês</span>
           </motion.div>
 
+          {/* Título Principal */}
           <motion.h2
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-balance text-white"
             initial={{ opacity: 0, y: 20 }}
@@ -130,6 +165,7 @@ export function FinalCTA() {
             </span>
           </motion.h2>
 
+          {/* Parágrafo de Chamada */}
           <motion.p
             className="text-xl md:text-2xl text-gray-100 mb-12 max-w-2xl mx-auto text-pretty leading-relaxed"
             initial={{ opacity: 0 }}
@@ -140,28 +176,18 @@ export function FinalCTA() {
             Fale com nossa equipe agora e tenha seu site profissional no ar em até 2 horas
           </motion.p>
 
+          {/* Container do Botão CTA */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                "0 0 30px rgba(132,204,22,0.4)",
-                "0 0 50px rgba(132,204,22,0.7)",
-                "0 0 30px rgba(132,204,22,0.4)",
-              ],
-            }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
+            // Removida a animação de box-shadow que causava o "brilho transparente"
+            // e sua transição associada.
+            style={{ opacity: 1 }}
           >
             <CTAButton size="lg" className="text-xl px-12 py-7 relative overflow-hidden group">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, repeatDelay: 2 }}
-              />
+              {/* O shimmer interno do CTAButton foi removido na última correção */}
               <span className="relative z-10 flex items-center gap-3">
                 <Sparkles className="w-6 h-6" />
                 Começar Agora
@@ -170,6 +196,7 @@ export function FinalCTA() {
             </CTAButton>
           </motion.div>
 
+          {/* Itens de Confiança */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -195,7 +222,12 @@ export function FinalCTA() {
                   animate={{
                     scale: [1, 1.2, 1],
                   }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: index * 0.3 }}
+                  transition={{ 
+                    type: "tween", // Adicionado para suportar 3 keyframes e evitar Runtime Error
+                    duration: 2, 
+                    repeat: Number.POSITIVE_INFINITY, 
+                    delay: index * 0.3 
+                  }}
                 >
                   <item.icon
                     className={`w-5 h-5 ${

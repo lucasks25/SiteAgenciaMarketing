@@ -49,7 +49,7 @@ export function Steps2H() {
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-balance text-white">
             Como entregamos em{" "}
-            <span className="bg-gradient-to-r from-lime-400 to-cyan-400 bg-clip-text text-transparent">até 2h</span>
+            <span className="bg-gradient-to-r from-lime-400 to-cyan-400 bg-clip-text text-transparent">até 2 dias</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto text-pretty leading-relaxed">
             Processo otimizado para máxima velocidade sem comprometer qualidade
@@ -83,7 +83,7 @@ export function Steps2H() {
             whileHover={{ scale: 1.05, borderColor: "rgba(132, 204, 22, 0.5)" }}
           >
             <span className="text-base text-lime-400 font-semibold">
-              ⚡ Prazo de 2h válido para escopo essencial one-page
+              ⚡ Prazo de 2 dias válido para escopo essencial one-page
             </span>
           </motion.div>
         </motion.div>

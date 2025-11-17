@@ -24,7 +24,7 @@ export function Footer() {
                   {AGENCIA}
                 </h3>
                 <p className="text-base text-gray-300 leading-relaxed max-w-sm">
-                  Transformamos negócios através de sites profissionais criados em até 2 horas. Velocidade, qualidade e
+                  Transformamos negócios através de sites profissionais criados em até 2 dias. Velocidade, qualidade e
                   resultados comprovados.
                 </p>
               </div>
@@ -34,13 +34,13 @@ export function Footer() {
                   <div className="w-10 h-10 rounded-full bg-lime-500/10 flex items-center justify-center">
                     <Phone className="w-5 h-5 text-lime-400" />
                   </div>
-                  <span className="text-sm">(11) 99999-9999</span>
+                  <span className="text-sm">(11) 91709-2509</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-cyan-400 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center">
                     <Mail className="w-5 h-5 text-cyan-400" />
                   </div>
-                  <span className="text-sm">contato@agencia.com.br</span>
+                  <span className="text-sm">lucas.sapuppo@hotmail.com</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-300 hover:text-purple-400 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center">
@@ -53,8 +53,6 @@ export function Footer() {
               <div className="flex items-center gap-4">
                 {[
                   { icon: Instagram, href: "#", color: "from-pink-500 to-purple-500" },
-                  { icon: Facebook, href: "#", color: "from-blue-500 to-cyan-500" },
-                  { icon: Linkedin, href: "#", color: "from-blue-600 to-cyan-600" },
                 ].map((social, index) => (
                   <motion.a
                     key={index}
@@ -121,7 +119,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Newsletter</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Newsletter *Em Breve*</h4>
             <p className="text-sm text-gray-400 mb-4">
               Receba dicas exclusivas sobre marketing digital e vendas online
             </p>
@@ -148,7 +146,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row items-center gap-6 text-sm text-gray-400">
               <p>© 2025 {AGENCIA}. Todos os direitos reservados.</p>
               <div className="flex items-center gap-1 text-xs">
-                <span>CNPJ: 00.000.000/0001-00</span>
+                <span></span>
               </div>
             </div>
             <div className="flex items-center gap-6 text-sm">
