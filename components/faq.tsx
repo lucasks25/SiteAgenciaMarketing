@@ -126,7 +126,7 @@ export function FAQ() {
         </motion.div>
 
         {/* LISTA DE FAQS */}
-        <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
+        <div className="max-w-3xl mx-auto space-y-4 sm:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}

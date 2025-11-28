@@ -199,7 +199,7 @@ function ProcessStep({ step, index }: { step: Step; index: number }) {
         stiffness: 100,
         damping: 20,
       }}
-      className={`flex items-center gap-5 sm:gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
+      className={`flex items-center gap-8 sm:gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       <motion.div
         className="flex-1"

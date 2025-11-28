@@ -36,7 +36,7 @@ export function StatsCounter() {
         </div>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(180px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 auto-rows-[minmax(180px,auto)]">
 
           {/* Card 1: Total Projects (Large) */}
           <motion.div

@@ -131,7 +131,7 @@ export function FinalCTA() {
 
           {/* Título Principal */}
           <motion.h2
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-balance text-white"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-balance text-white"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

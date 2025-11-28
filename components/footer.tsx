@@ -12,7 +12,7 @@ export function Footer() {
       <div className="absolute inset-0 bg-gradient-to-b from-black via-neutral-950 to-black opacity-50" />
 
       <div className="container mx-auto px-4 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16 md:gap-12 mb-16">
           {/* Brand Column - Enhanced */}
           <div className="lg:col-span-2">
             <motion.div

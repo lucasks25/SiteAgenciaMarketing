@@ -119,7 +119,7 @@ export function Pricing() {
         </motion.div>
 
         {/* CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 max-w-7xl mx-auto">
           {plans.map((plan, index) => (
             <PricingCard key={index} plan={plan} index={index} />
           ))}

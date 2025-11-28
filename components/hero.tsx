@@ -114,6 +114,32 @@ export function Hero() {
       </div>
 
       <motion.div className="container mx-auto relative z-10" style={{ opacity: 0.9 }}>
+
+        {/* Mobile Floating Cards (Subtle Float & Compact) */}
+        <div className="lg:hidden flex flex-nowrap justify-center gap-2 mb-8 -mt-6 overflow-x-visible">
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0 }}
+            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-lime-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Performance 🚀</span>
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
+            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-cyan-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Design 🎨</span>
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-purple-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
+          >
+            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Conversão 📈</span>
+          </motion.div>
+        </div>
+
         {/* badge */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.9 }}
@@ -140,12 +166,12 @@ export function Hero() {
 
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center max-w-6xl xl:max-w-7xl mx-auto">
           {/* LEFT */}
-          <div className="space-y-6 sm:space-y-8 md:space-y-10 text-center lg:text-left">
+          <div className="space-y-8 sm:space-y-10 text-center lg:text-left">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white max-w-4xl mx-auto lg:mx-0 leading-[1.1]"
+              className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white max-w-4xl mx-auto lg:mx-0 leading-[1.2] sm:leading-[1.1]"
             >
               Seu negócio no{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-cyan-400 to-purple-400 animate-gradient-x">
@@ -157,7 +183,7 @@ export function Hero() {
                 7 dias
                 <motion.svg
                   viewBox="0 0 100 20"
-                  className="absolute -bottom-2 left-0 w-full h-[0.4em] text-lime-500/50 -z-10"
+                  className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-[0.3em] sm:h-[0.4em] text-lime-500/50 -z-10"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
@@ -176,7 +202,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg mx-auto lg:mx-0"
+              className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg mx-auto lg:mx-0 px-4 sm:px-0"
             >
               Criamos sites de alta conversão, gerenciamos tráfego pago e otimizamos sua presença digital com velocidade e resultados comprovados.
             </motion.p>
@@ -185,7 +211,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1 }}
-              className="flex flex-col sm:flex-row items-center gap-4 pt-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-center gap-6 sm:gap-4 pt-4 w-full sm:w-auto px-4 sm:px-0"
             >
               <CTAButton size="lg" className="w-full sm:w-auto justify-center" href="#planos">
 
@@ -202,7 +228,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* RIGHT – desktop */}
+          {/* RIGHT – desktop only */}
           <div className="relative hidden lg:block lg:h-[560px] xl:h-[600px]">
             <motion.div
               style={{ y: y1 }}
@@ -224,93 +250,101 @@ export function Hero() {
               className="absolute bottom-0 left-0 w-[460px] h-[460px] bg-gradient-to-br from-purple-500/40 via-pink-500/30 to-transparent rounded-full blur-3xl"
             />
 
-            <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] h-[360px] border-2 border-lime-500/20 rounded-full"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            />
-
-            <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] border-2 border-cyan-500/10 rounded-full"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            />
-
-            <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] border border-purple-500/15 rounded-full"
-              animate={{ rotate: 360, scale: [1, 1.1, 1] }}
-              transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            />
-
-            {/* Orbiting Cards Container */}
-            <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[440px] h-[440px] rounded-full border border-white/5 will-change-transform"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-            >
-              {/* Card 1 - Top (0 degrees) - Performance */}
-              <motion.div
-                className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-lime-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-lime-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(132,204,22,0.3)] whitespace-nowrap group-hover:border-lime-400 transition-colors">
-                    <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Performance 🚀</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Card 2 - Bottom Right (120 degrees) - Design */}
-              <motion.div
-                className="absolute bottom-[14%] right-[14%] translate-x-1/2 translate-y-1/2"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.4 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-cyan-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-cyan-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(6,182,212,0.3)] whitespace-nowrap group-hover:border-cyan-400 transition-colors">
-                    <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Design 🎨</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-
-              {/* Card 3 - Bottom Left (240 degrees) - Conversão */}
-              <motion.div
-                className="absolute bottom-[14%] left-[14%] -translate-x-1/2 translate-y-1/2"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
-              >
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.6 }}
-                  whileHover={{ scale: 1.1 }}
-                  className="group relative"
-                >
-                  <div className="absolute inset-0 bg-purple-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative flex items-center justify-center px-5 py-2.5 rounded-full bg-gray-900/90 border border-purple-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(168,85,247,0.3)] whitespace-nowrap group-hover:border-purple-400 transition-colors">
-                    <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Conversão 📈</span>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+            <OrbitingAnimation />
           </div>
         </div >
       </motion.div >
     </section >
+  )
+}
+
+function OrbitingAnimation() {
+  return (
+    <>
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[360px] h-[280px] sm:h-[360px] border-2 border-lime-500/20 rounded-full"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 30, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      />
+
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[460px] h-[360px] sm:h-[460px] border-2 border-cyan-500/10 rounded-full"
+        animate={{ rotate: -360 }}
+        transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      />
+
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] sm:w-[280px] h-[200px] sm:h-[280px] border border-purple-500/15 rounded-full"
+        animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+        transition={{ duration: 25, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      />
+
+      {/* Orbiting Cards Container */}
+      <motion.div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[440px] h-[340px] sm:h-[440px] rounded-full border border-white/5 will-change-transform"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+      >
+        {/* Card 1 - Top (0 degrees) - Performance */}
+        <motion.div
+          className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 will-change-transform"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.2 }}
+            whileHover={{ scale: 1.1 }}
+            className="group relative"
+          >
+            <div className="absolute inset-0 bg-lime-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
+            <div className="relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gray-900/90 border border-lime-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(132,204,22,0.3)] whitespace-nowrap group-hover:border-lime-400 transition-colors">
+              <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Performance 🚀</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Card 2 - Bottom Right (120 degrees) - Design */}
+        <motion.div
+          className="absolute bottom-[14%] right-[14%] translate-x-1/2 translate-y-1/2"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.4 }}
+            whileHover={{ scale: 1.1 }}
+            className="group relative"
+          >
+            <div className="absolute inset-0 bg-cyan-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
+            <div className="relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gray-900/90 border border-cyan-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(6,182,212,0.3)] whitespace-nowrap group-hover:border-cyan-400 transition-colors">
+              <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Design 🎨</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Card 3 - Bottom Left (240 degrees) - Conversão */}
+        <motion.div
+          className="absolute bottom-[14%] left-[14%] -translate-x-1/2 translate-y-1/2"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1.6 }}
+            whileHover={{ scale: 1.1 }}
+            className="group relative"
+          >
+            <div className="absolute inset-0 bg-purple-500/40 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500" />
+            <div className="relative flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-gray-900/90 border border-purple-500/50 backdrop-blur-2xl shadow-[0_0_20px_rgba(168,85,247,0.3)] whitespace-nowrap group-hover:border-purple-400 transition-colors">
+              <span className="text-sm sm:text-base font-bold text-white drop-shadow-lg">Conversão 📈</span>
+            </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </>
   )
 }
