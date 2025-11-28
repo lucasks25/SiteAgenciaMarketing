@@ -18,16 +18,28 @@ export function SpotlightReveal() {
         const ctx = canvas.getContext("2d")
         if (!ctx) return
 
-        const resizeCanvas = () => {
-            canvas.width = container.offsetWidth
-            canvas.height = container.offsetHeight
+        let lastWidth = container.offsetWidth
 
-            // Fill with black initially
-            ctx.fillStyle = "black"
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+        const resizeCanvas = () => {
+            const newWidth = container.offsetWidth
+            // Only resize/reset if width changes (prevents reset on mobile address bar scroll)
+            if (newWidth !== lastWidth || canvas.width === 0) {
+                canvas.width = newWidth
+                canvas.height = container.offsetHeight
+                lastWidth = newWidth
+
+                // Fill with black initially
+                ctx.fillStyle = "black"
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
+            }
         }
 
-        resizeCanvas()
+        // Initial setup
+        canvas.width = container.offsetWidth
+        canvas.height = container.offsetHeight
+        ctx.fillStyle = "black"
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+
         window.addEventListener("resize", resizeCanvas)
 
         return () => {
@@ -95,7 +107,7 @@ export function SpotlightReveal() {
 
             <canvas
                 ref={canvasRef}
-                className="absolute inset-0 z-20 touch-none"
+                className="absolute inset-0 z-20 touch-pan-y"
             />
 
             {/* Hint Text (Fades out on interaction) */}
