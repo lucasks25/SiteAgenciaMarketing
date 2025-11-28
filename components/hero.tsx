@@ -115,30 +115,6 @@ export function Hero() {
 
       <motion.div className="container mx-auto relative z-10" style={{ opacity: 0.9 }}>
 
-        {/* Mobile Floating Cards (Subtle Float & Compact) */}
-        <div className="lg:hidden flex flex-nowrap justify-center gap-2 mb-8 -mt-6 overflow-x-visible">
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 4, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0 }}
-            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-lime-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
-          >
-            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Performance 🚀</span>
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 4.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.5 }}
-            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-cyan-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
-          >
-            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Design 🎨</span>
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
-            className="px-3 py-1.5 rounded-full bg-neutral-900/90 border border-purple-500/30 backdrop-blur-md flex items-center gap-1.5 whitespace-nowrap"
-          >
-            <span className="text-[10px] sm:text-xs font-bold text-white tracking-wide">Conversão 📈</span>
-          </motion.div>
-        </div>
 
         {/* badge */}
         <motion.div
