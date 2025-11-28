@@ -43,7 +43,7 @@ export function Partners() {
   ]
 
   return (
-    <section className="relative py-24 px-4 overflow-hidden bg-black">
+    <section className="relative py-16 sm:py-24 px-4 overflow-hidden bg-black">
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.08),transparent_70%)]"
         animate={{
@@ -125,9 +125,8 @@ export function Partners() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className={`p-4 rounded-xl bg-neutral-900/70 backdrop-blur-sm border-2 ${
-                      colorClasses[cert.color as keyof typeof colorClasses]
-                    } transition-all group`}
+                    className={`p-4 rounded-xl bg-neutral-900/70 backdrop-blur-sm border-2 ${colorClasses[cert.color as keyof typeof colorClasses]
+                      } transition-all group`}
                   >
                     <motion.div
                       className={`w-10 h-10 rounded-lg bg-gradient-to-br from-${cert.color}-500 to-${cert.color}-600 flex items-center justify-center mb-3`}

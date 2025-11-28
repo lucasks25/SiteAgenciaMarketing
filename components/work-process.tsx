@@ -3,13 +3,23 @@
 import { motion } from "framer-motion"
 import { MessageCircle, Palette, Rocket, Target, CheckCircle, Zap } from "lucide-react"
 
+type Step = {
+  number: string
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
+  title: string
+  description: string
+  duration: string
+  color: "lime" | "cyan" | "purple" | "pink"
+  gradient: string
+}
+
 export function WorkProcess() {
-  const steps = [
+  const steps: Step[] = [
     {
       number: "01",
       icon: MessageCircle,
       title: "Entrevista Inicial",
-      description: "Conversa de 15 minutos no WhatsApp para entender seu negócio, público-alvo e objetivos",
+      description: "Conversa de 15 minutos no Meet para entender seu negócio, público-alvo e objetivos",
       duration: "15 min",
       color: "lime",
       gradient: "from-lime-500 to-lime-600",
@@ -53,7 +63,10 @@ export function WorkProcess() {
   ]
 
   return (
-    <section className="relative py-32 px-4 overflow-hidden section-black-purple">
+    <section
+      id="work-process"
+      className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden section-black-purple"
+    >
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(139,92,246,0.12),transparent_70%)] glow-section"
         animate={{
@@ -73,7 +86,7 @@ export function WorkProcess() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-24"
+          className="text-center mb-16 md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -81,19 +94,21 @@ export function WorkProcess() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-purple-500/10 border border-purple-500/30 mb-8"
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-purple-500/10 border border-purple-500/30 mb-6 sm:mb-8"
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             >
-              <Zap className="w-5 h-5 text-purple-400" />
+              <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
             </motion.div>
-            <span className="text-base font-bold text-purple-400">Processo Simplificado</span>
+            <span className="text-xs sm:text-sm md:text-base font-bold text-purple-400">
+              Processo Simplificado
+            </span>
           </motion.div>
 
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-8 text-balance leading-tight text-high-contrast"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-8 text-balance leading-tight text-high-contrast"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -106,13 +121,13 @@ export function WorkProcess() {
           </motion.h2>
 
           <motion.p
-            className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto text-pretty leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto text-pretty leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            Um método eficiente e testado 
+            Um método eficiente e testado
           </motion.p>
         </motion.div>
 
@@ -127,9 +142,9 @@ export function WorkProcess() {
               style={{ transformOrigin: "top" }}
             />
 
-            <div className="space-y-12">
+            <div className="space-y-8 sm:space-y-10 md:space-y-12">
               {steps.map((step, index) => (
-                <ProcessStep key={index} step={step} index={index} />
+                <ProcessStep key={step.number} step={step} index={index} />
               ))}
             </div>
           </div>
@@ -140,31 +155,37 @@ export function WorkProcess() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="mt-20 text-center"
+          className="mt-14 sm:mt-16 md:mt-20 text-center"
         >
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-6 px-10 py-6 rounded-2xl bg-gradient-to-r from-lime-500/10 via-cyan-500/10 to-purple-500/10 border-2 border-lime-500/30 backdrop-blur-xl"
+            className="inline-flex items-center gap-4 sm:gap-6 px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 rounded-2xl bg-gradient-to-r from-lime-500/10 via-cyan-500/10 to-purple-500/10 border-2 border-lime-500/30 backdrop-blur-xl"
           >
             <motion.div
-              className="w-16 h-16 rounded-full bg-gradient-to-br from-lime-500 to-cyan-500 flex items-center justify-center"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-lime-500 to-cyan-500 flex items-center justify-center"
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 20, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             >
-              <Zap className="w-8 h-8 text-white" />
+              <Zap className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
             </motion.div>
             <div className="text-left">
-              <div className="font-bold text-2xl text-white mb-1">Total: 2 dias</div>
-              <div className="text-base text-neutral-300">Do briefing até a publicação do seu site</div>
+              <div className="font-bold text-lg sm:text-xl md:text-2xl text-white mb-1">
+                Total: 7 dias
+              </div>
+              <div className="text-sm sm:text-base text-neutral-300">
+                Do briefing até a publicação do seu site
+              </div>
             </div>
           </motion.div>
         </motion.div>
+
+
       </div>
     </section>
   )
 }
 
-function ProcessStep({ step, index }: { step: any; index: number }) {
+function ProcessStep({ step, index }: { step: Step; index: number }) {
   const isEven = index % 2 === 0
 
   return (
@@ -178,7 +199,7 @@ function ProcessStep({ step, index }: { step: any; index: number }) {
         stiffness: 100,
         damping: 20,
       }}
-      className={`flex items-center gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
+      className={`flex items-center gap-5 sm:gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"}`}
     >
       <motion.div
         className="flex-1"
@@ -186,9 +207,13 @@ function ProcessStep({ step, index }: { step: any; index: number }) {
         transition={{ type: "spring", stiffness: 300 }}
       >
         <motion.div
-          className={`relative p-8 rounded-3xl bg-neutral-900/70 backdrop-blur-xl border-2 border-${step.color}-500/30 overflow-hidden group`}
+          className={`relative p-6 sm:p-7 md:p-8 rounded-3xl bg-neutral-900/70 backdrop-blur-xl border-2 overflow-hidden group
+            ${step.color === "lime" ? "border-lime-500/30" : ""}
+            ${step.color === "cyan" ? "border-cyan-500/30" : ""}
+            ${step.color === "purple" ? "border-purple-500/30" : ""}
+            ${step.color === "pink" ? "border-pink-500/30" : ""}`}
           whileHover={{
-            boxShadow: `0 0 50px rgba(132, 204, 22, 0.3)`,
+            boxShadow: "0 0 50px rgba(132, 204, 22, 0.3)",
           }}
         >
           <motion.div
@@ -197,17 +222,22 @@ function ProcessStep({ step, index }: { step: any; index: number }) {
           />
 
           <div className="relative z-10">
-            <div className="flex items-start justify-between mb-6">
-              <motion.div
-                className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-2xl`}
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                transition={{ duration: 0.6 }}
-              >
-                <step.icon className="w-8 h-8 text-white" />
-              </motion.div>
+            <div className="flex items-start justify-between mb-5 sm:mb-6">
+              <div className="flex items-center gap-3">
+                <motion.div
+                  className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${step.gradient} flex items-center justify-center shadow-2xl`}
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <step.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+                </motion.div>
+                <span className="md:hidden text-2xl font-bold text-white/20">
+                  {step.number}
+                </span>
+              </div>
 
               <motion.div
-                className={`px-4 py-2 rounded-full bg-gradient-to-r ${step.gradient} text-white text-sm font-bold`}
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r ${step.gradient} text-white text-xs sm:text-sm font-bold`}
                 whileHover={{ scale: 1.1 }}
               >
                 {step.duration}
@@ -215,8 +245,12 @@ function ProcessStep({ step, index }: { step: any; index: number }) {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-2xl md:text-3xl font-bold text-white">{step.title}</h3>
-              <p className="text-base md:text-lg text-neutral-300 leading-relaxed">{step.description}</p>
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                {step.title}
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-neutral-300 leading-relaxed">
+                {step.description}
+              </p>
             </div>
           </div>
         </motion.div>

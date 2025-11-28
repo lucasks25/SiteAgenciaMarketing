@@ -9,13 +9,13 @@ export function FAQ() {
 
   const faqs = [
     {
-      question: "Como vocês conseguem entregar em até 2 dias?",
+      question: "Como vocês conseguem entregar em até 7 dias?",
       answer:
-        "Usamos templates premium otimizados e um processo ultra-eficiente. O prazo de 2 dias é válido para landing pages essenciais (one-page) com escopo padrão: Hero, Benefícios, Prova Social, Portfólio, FAQ e CTA.",
+        "Fazemos páginas premium otimizados e um processo ultra-eficiente. O prazo de 7 dias é válido para landing pages essenciais (one-page) com escopo padrão: Hero, Benefícios, Prova Social, Portfólio, FAQ e CTA.",
       category: "Entrega",
     },
     {
-      question: "O que está incluído no prazo de 2 dias?",
+      question: "O que está incluído no prazo de 7 dias?",
       answer:
         "Landing page completa com Hero, seções essenciais, CTA WhatsApp, SEO básico (meta tags), publicação guiada e 1 rodada de ajustes nas primeiras 24h *depois da confirmação*.",
       category: "Entrega",
@@ -83,9 +83,12 @@ export function FAQ() {
   ]
 
   return (
-    <section id="faq" className="relative py-32 px-4 bg-black">
+    <section
+      id="faq"
+      className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 bg-black"
+    >
       <motion.div
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-lime-500/10 rounded-full blur-3xl"
+        className="absolute top-1/4 left-1/4 w-[260px] h-[260px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] bg-lime-500/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -94,32 +97,36 @@ export function FAQ() {
       />
 
       <div className="container mx-auto relative z-10">
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-14 sm:mb-20"
         >
           <motion.div
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200 }}
-            className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-lime-500 to-cyan-500 mb-6"
+            className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-lime-500 to-cyan-500 mb-5 sm:mb-6"
           >
-            <HelpCircle className="w-8 h-8 text-white" />
+            <HelpCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
           </motion.div>
 
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-balance text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 text-balance text-white">
             Perguntas{" "}
-            <span className="bg-gradient-to-r from-lime-400 to-cyan-400 bg-clip-text text-transparent">Frequentes</span>
+            <span className="bg-gradient-to-r from-lime-400 to-cyan-400 bg-clip-text text-transparent">
+              Frequentes
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto text-pretty leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto text-pretty leading-relaxed">
             Tire suas dúvidas sobre nossos serviços
           </p>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        {/* LISTA DE FAQS */}
+        <div className="max-w-3xl mx-auto space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -127,27 +134,30 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               className="rounded-2xl bg-neutral-900/70 backdrop-blur-sm border border-neutral-800 overflow-hidden"
             >
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-800/50 transition-colors"
-                whileHover={{ x: 5 }}
+                className="w-full flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 text-left hover:bg-neutral-800/50 transition-colors"
+                whileHover={{ x: 4 }}
               >
-                <span className="font-semibold text-lg pr-8 text-white">{faq.question}</span>
+                <span className="font-semibold text-base sm:text-lg pr-4 sm:pr-8 text-white">
+                  {faq.question}
+                </span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
                   className="flex-shrink-0"
                 >
                   {openIndex === index ? (
-                    <Minus className="w-6 h-6 text-lime-400" />
+                    <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" />
                   ) : (
-                    <Plus className="w-6 h-6 text-lime-400" />
+                    <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-lime-400" />
                   )}
                 </motion.div>
               </motion.button>
+
               <AnimatePresence>
                 {openIndex === index && (
                   <motion.div
@@ -157,8 +167,14 @@ export function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <motion.div initial={{ y: -10 }} animate={{ y: 0 }} className="px-6 pb-6">
-                      <p className="text-gray-300 leading-relaxed text-lg">{faq.answer}</p>
+                    <motion.div
+                      initial={{ y: -10 }}
+                      animate={{ y: 0 }}
+                      className="px-4 sm:px-6 pb-4 sm:pb-6"
+                    >
+                      <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                        {faq.answer}
+                      </p>
                     </motion.div>
                   </motion.div>
                 )}

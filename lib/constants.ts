@@ -1,4 +1,4 @@
-export const AGENCIA = "Agência Digital"
+export const AGENCIA = "Elev"
 export const SLOGAN = "Transforme seu negócio com velocidade e inovação digital"
 export const WHATSAPP = "5511917092509"
 export const WHATSAPP_MSG = "Olá! Quero transformar meu negócio no digital. Vamos conversar?"

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s | ${AGENCIA}`,
   },
   description:
-    "Criamos sites profissionais em até 2 horas. Design premium, performance 95+ no Lighthouse e copy que converte. Oferecemos também otimização de campanhas, tráfego pago e Google Meu Negócio.",
+    "Criamos sites profissionais em até 7 dias. Design premium, performance 95+ no Lighthouse e copy que converte. Oferecemos também otimização de campanhas, tráfego pago e Google Meu Negócio.",
   keywords: [
     "criação de sites",
     "sites em 2 horas",
@@ -49,21 +49,21 @@ export const metadata: Metadata = {
     url: "https://velocityweb.com.br",
     title: `${AGENCIA} | ${SLOGAN}`,
     description:
-      "Sites profissionais prontos em até 2h. Design premium, performance 95+ e resultados comprovados. +247 projetos entregues com NPS 9.4",
+      "Sites profissionais prontos em até 7 dias. Design premium, performance 95+ e resultados comprovados. +247 projetos entregues com NPS 9.4",
     siteName: AGENCIA,
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: `${AGENCIA} - Sites Profissionais em 2 dias`,
+        alt: `${AGENCIA} - Sites Profissionais em 7 dias`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${AGENCIA} | ${SLOGAN}`,
-    description: "Sites profissionais prontos em até 2 dias. Design premium e performance garantida.",
+    description: "Sites profissionais prontos em até 7 dias. Design premium e performance garantida.",
     creator: "@lucas.ksz",
     images: ["/opengraph-image"],
   },

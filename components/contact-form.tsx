@@ -28,7 +28,7 @@ export function ContactForm() {
   }
 
   return (
-    <section className="relative py-32 px-4 overflow-hidden bg-black">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 overflow-hidden bg-black">
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.15),transparent_70%)]"
         animate={{

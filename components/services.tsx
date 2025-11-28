@@ -16,7 +16,7 @@ export function Services() {
   const services = [
     {
       icon: Globe,
-      title: "Sites em até 2 dias",
+      title: "Sites em até 7 dias",
       description: "Landing pages profissionais com design premium e performance 95+",
       features: ["Design responsivo", "SEO otimizado", "Performance 95+", "CTA integrado"],
       gradient: "from-cyan-500 to-cyan-600",
@@ -65,7 +65,11 @@ export function Services() {
   ]
 
   return (
-    <section ref={containerRef} id="servicos" className="relative py-32 px-4 overflow-hidden section-black-lime">
+    <section
+      ref={containerRef}
+      id="servicos"
+      className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 overflow-hidden section-black-lime"
+    >
       <motion.div
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.12),transparent_70%)]"
         style={{ opacity }}
@@ -85,7 +89,7 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-24"
+          className="text-center mb-14 sm:mb-18 md:mb-24"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -93,27 +97,32 @@ export function Services() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-lime-500/10 border border-lime-500/30 mb-8"
+            className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-lime-500/10 border border-lime-500/30 mb-6 sm:mb-8"
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
               transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
             >
-              <Sparkles className="w-5 h-5 text-lime-400" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-lime-400" />
             </motion.div>
-            <span className="text-base font-bold text-lime-400">Soluções Completas</span>
+            <span className="text-xs sm:text-sm md:text-base font-bold text-lime-400">
+              Soluções Completas
+            </span>
           </motion.div>
+
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-8 text-balance leading-tight text-high-contrast"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 sm:mb-6 text-balance leading-tight text-high-contrast"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
           >
-            Serviços que <span className="text-lime-400">transformam negócios</span>
+            Serviços que{" "}
+            <span className="text-lime-400">transformam negócios</span>
           </motion.h2>
+
           <motion.p
-            className="text-xl md:text-2xl text-neutral-300 max-w-3xl mx-auto text-pretty leading-relaxed"
+            className="text-base sm:text-lg md:text-2xl text-neutral-300 max-w-3xl mx-auto text-pretty leading-relaxed"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -123,7 +132,7 @@ export function Services() {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -144,7 +153,7 @@ export function Services() {
               className="group relative"
             >
               <motion.div
-                className="relative p-8 h-full rounded-3xl bg-neutral-900/50 backdrop-blur-xl border-2 border-neutral-800 overflow-hidden"
+                className="relative p-6 sm:p-7 md:p-8 h-full rounded-3xl bg-neutral-900/50 backdrop-blur-xl border-2 border-neutral-800 overflow-hidden"
                 whileHover={{
                   borderColor: service.glowColor,
                   boxShadow: `0 0 40px ${service.glowColor}`,
@@ -158,18 +167,22 @@ export function Services() {
 
                 <div className="relative z-10">
                   <motion.div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 shadow-xl`}
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 sm:mb-6 shadow-xl`}
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <service.icon className="w-8 h-8 text-white" />
+                    <service.icon className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
                   </motion.div>
 
-                  <h3 className="text-2xl font-bold mb-4 text-white">{service.title}</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">
+                    {service.title}
+                  </h3>
 
-                  <p className="text-base text-neutral-300 mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-sm sm:text-base text-neutral-300 mb-5 sm:mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
 
-                  <ul className="space-y-3 mb-6">
+                  <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
                     {service.features.map((feature, i) => (
                       <motion.li
                         key={i}
@@ -177,7 +190,7 @@ export function Services() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 + i * 0.1 }}
-                        className="flex items-center gap-3 text-sm text-neutral-200"
+                        className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm text-neutral-200"
                       >
                         <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient}`} />
                         {feature}
@@ -186,7 +199,7 @@ export function Services() {
                   </ul>
 
                   <motion.div
-                    className="flex items-center gap-2 text-sm font-semibold text-white group-hover:gap-4 transition-all"
+                    className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-white group-hover:gap-4 transition-all"
                     whileHover={{ x: 5 }}
                   >
                     <span>Saiba mais</span>

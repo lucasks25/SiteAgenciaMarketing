@@ -37,7 +37,7 @@ export function FinalCTA() {
   }, []) // Array de dependência vazio garante que ele rode apenas uma vez
 
   return (
-    <section className="relative py-32 px-4 overflow-hidden bg-black">
+    <section className="relative py-16 sm:py-24 md:py-32 px-4 overflow-hidden bg-black">
       {/* Gradiente de fundo principal animado */}
       <motion.div
         className="absolute inset-0 bg-gradient-to-br from-lime-950/30 via-cyan-950/20 to-purple-950/30"
@@ -76,7 +76,7 @@ export function FinalCTA() {
         }}
         transition={{ duration: 22, repeat: Number.POSITIVE_INFINITY }}
       />
-      
+
       {/* Partículas (Pontos) Animadas - Usando o estado corrigido */}
       {particlePositions.map((item, i) => (
         <motion.div
@@ -100,7 +100,7 @@ export function FinalCTA() {
           }}
         />
       ))}
-      
+
       <div className="container mx-auto relative z-10">
         <motion.div
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,7 +173,7 @@ export function FinalCTA() {
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
           >
-            Fale com nossa equipe agora e tenha seu site profissional no ar em até 2 horas
+            Fale com nossa equipe agora e tenha seu site profissional no ar em até 7 dias
           </motion.p>
 
           {/* Container do Botão CTA */}
@@ -186,7 +186,7 @@ export function FinalCTA() {
             // e sua transição associada.
             style={{ opacity: 1 }}
           >
-            <CTAButton size="lg" className="text-xl px-12 py-7 relative overflow-hidden group">
+            <CTAButton size="lg" className="text-lg md:text-xl px-8 py-5 md:px-12 md:py-7 relative overflow-hidden group">
               {/* O shimmer interno do CTAButton foi removido na última correção */}
               <span className="relative z-10 flex items-center gap-3">
                 <Sparkles className="w-6 h-6" />
@@ -222,21 +222,20 @@ export function FinalCTA() {
                   animate={{
                     scale: [1, 1.2, 1],
                   }}
-                  transition={{ 
+                  transition={{
                     type: "tween", // Adicionado para suportar 3 keyframes e evitar Runtime Error
-                    duration: 2, 
-                    repeat: Number.POSITIVE_INFINITY, 
-                    delay: index * 0.3 
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                    delay: index * 0.3
                   }}
                 >
                   <item.icon
-                    className={`w-5 h-5 ${
-                      item.color === "lime"
-                        ? "text-lime-400"
-                        : item.color === "cyan"
-                          ? "text-cyan-400"
-                          : "text-purple-400"
-                    }`}
+                    className={`w-5 h-5 ${item.color === "lime"
+                      ? "text-lime-400"
+                      : item.color === "cyan"
+                        ? "text-cyan-400"
+                        : "text-purple-400"
+                      }`}
                   />
                 </motion.div>
                 <span className="text-base text-gray-200 font-medium">{item.text}</span>

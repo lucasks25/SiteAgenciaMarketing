@@ -1,8 +1,10 @@
 "use client"
 
-import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Zap, ArrowRight } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin, Zap, ArrowRight, Loader2, CheckCircle2 } from "lucide-react"
 import { AGENCIA } from "@/lib/constants"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
+import { subscribeToNewsletter } from "@/app/actions"
 
 export function Footer() {
   return (
@@ -24,7 +26,7 @@ export function Footer() {
                   {AGENCIA}
                 </h3>
                 <p className="text-base text-gray-300 leading-relaxed max-w-sm">
-                  Transformamos negócios através de sites profissionais criados em até 2 dias. Velocidade, qualidade e
+                  Transformamos negócios através de sites profissionais criados em até 7 dias. Velocidade, qualidade e
                   resultados comprovados.
                 </p>
               </div>
@@ -99,7 +101,7 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Sobre Nós", href: "#" },
-                { label: "Cases", href: "#cases" },
+
                 { label: "Planos", href: "#planos" },
                 { label: "Depoimentos", href: "#depoimentos" },
                 { label: "FAQ", href: "#faq" },
@@ -119,25 +121,11 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6 text-white">Newsletter *Em Breve*</h4>
+            <h4 className="font-bold text-lg mb-6 text-white">Newsletter</h4>
             <p className="text-sm text-gray-400 mb-4">
               Receba dicas exclusivas sobre marketing digital e vendas online
             </p>
-            <div className="space-y-3">
-              <input
-                type="email"
-                placeholder="Seu melhor e-mail"
-                className="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-neutral-800 text-white text-sm focus:outline-none focus:border-lime-500 transition-colors"
-              />
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-lime-500 to-cyan-500 text-black font-bold text-sm flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-lime-500/50 transition-shadow"
-              >
-                <Zap className="w-4 h-4" />
-                Inscrever-se
-              </motion.button>
-            </div>
+            <NewsletterForm />
           </div>
         </div>
 
@@ -150,13 +138,13 @@ export function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/termos-de-uso" className="text-gray-400 hover:text-white transition-colors">
                 Termos de Uso
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/politica-de-privacidade" className="text-gray-400 hover:text-white transition-colors">
                 Política de Privacidade
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+              <a href="/politica-de-cookies" className="text-gray-400 hover:text-white transition-colors">
                 Cookies
               </a>
             </div>
@@ -179,5 +167,83 @@ export function Footer() {
         </div>
       </div>
     </footer>
+  )
+}
+
+function NewsletterForm() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+  const [message, setMessage] = useState("")
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    setStatus("loading")
+
+    const formData = new FormData()
+    formData.append("email", email)
+
+    const result = await subscribeToNewsletter(formData)
+
+    if (result.success) {
+      setStatus("success")
+      setMessage(result.message)
+      setEmail("")
+    } else {
+      setStatus("error")
+      setMessage(result.message || "Erro ao inscrever.")
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-3">
+      <AnimatePresence mode="wait">
+        {status === "success" ? (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="p-4 rounded-lg bg-lime-500/10 border border-lime-500/20 flex items-center gap-3 text-lime-400"
+          >
+            <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+            <p className="text-sm font-medium">{message}</p>
+          </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="space-y-3"
+          >
+            <div className="relative">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Seu melhor e-mail"
+                required
+                disabled={status === "loading"}
+                className="w-full px-4 py-3 rounded-lg bg-neutral-900 border border-neutral-800 text-white text-sm focus:outline-none focus:border-lime-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              />
+            </div>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              disabled={status === "loading"}
+              className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-lime-500 to-cyan-500 text-black font-bold text-sm flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-lime-500/50 transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === "loading" ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : (
+                <Zap className="w-4 h-4" />
+              )}
+              {status === "loading" ? "Inscrevendo..." : "Inscrever-se"}
+            </motion.button>
+            {status === "error" && (
+              <p className="text-xs text-red-400 mt-2">{message}</p>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </form>
   )
 }
